@@ -26,3 +26,21 @@ print(chain.invoke({
     "limit": 60,
     "question": "What is a good prompt?"
 }))
+
+translate = (
+    ChatPromptTemplate.from_messages([
+        (
+            "human",
+            "Translate this into hindi:\n\n{text}"
+        )
+    ])
+    | model
+    | parser
+)
+
+full = chain | translate
+
+print(full.invoke({
+    "limit":30,
+    "question":"What is a python?"
+}))
