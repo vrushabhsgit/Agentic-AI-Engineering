@@ -1,0 +1,26 @@
+from typing import Literal
+from pydantic import BaseModel, Field
+from langchain_core.tools import tool
+
+class ConvertInput(BaseModel):
+    """Input for the currency convertor"""
+    amount:float = Field(description="Amount for convert into currency", gt=0)
+    currency:Literal["USD", "EUR", "GBP"] = Field(description="currency to convert the amount in")
+
+@tool("convert_from_rupees",args_schema=ConvertInput)
+def convert_from_rupees(amount:float,currency:str)->str:
+    """convert and amount in indin currency from another rupees"""
+    rates = {"USD": 0.012, "EUR": 0.011, "GBP": 0.0094}
+    return f"{amount} rupees is about {amount * rates[currency]:.2f} {currency}"
+
+
+# print("args:", convert_from_rupees.args)
+# print(convert_from_rupees.invoke({"amount": 5000, "currency": "USD"}))
+
+
+# for bad_input in [{"amount": -100, "currency": "USD"},
+# {"amount": 500, "currency": "JPY"}]:
+#      try:
+#     convert_from_rupees.invoke(bad_input)
+# except Exception as error:
+# print("Rejected", bad_input, "because of", type(error).__name__)
