@@ -1,5 +1,5 @@
 [project]
-name = "langchain"
+name = "agentic-ai-learning"
 version = "0.1.0"
 description = "Agentic AI learning"
 readme = "README.md"
@@ -7,6 +7,7 @@ requires-python = ">=3.14"
 dependencies = [
     "dotenv>=0.9.9",
     "fastapi>=0.141.1",
+    "langchain>=1.4.0",
     "langchain-core>=1.6.1",
     "langchain-huggingface>=1.2.2",
     "langchain-ollama>=1.1.0",

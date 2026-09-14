@@ -84,4 +84,6 @@ while True:
           
          print(f"{step}{call['name']}({call['args']}) -> {tool_message.content}")
          messages.append(tool_message)
+step += 1
+print("\nMessages in the conversation:", [type(m).__name__ for m in messages])
 
