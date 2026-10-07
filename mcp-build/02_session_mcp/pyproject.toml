@@ -1,5 +1,5 @@
 [project]
-name = "mcp-builds"
+name = "02-session-mcp"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,16 +7,10 @@ authors = [
     { name = "Vrushabh Damle", email = "dwrushabh@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = [
-    "fastmcp>=4.0.10",
-    "langchain-mcp-adapters>=0.3.1",
-    "langchain-openai>=1.6.7",
-    "mcp>=2.3.0",
-    "python-dotenv>=1.1.1",
-]
+dependencies = []
 
 [project.scripts]
-mcp-builds = "mcp_builds:main"
+02-session-mcp = "02_session_mcp:main"
 
 [build-system]
 requires = ["uv_build>=0.12.22,<0.13.0"]
