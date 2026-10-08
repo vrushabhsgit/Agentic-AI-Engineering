@@ -7,7 +7,14 @@ authors = [
     { name = "Vrushabh Damle", email = "dwrushabh@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fastmcp>=4.0.11",
+    "langchain-core>=1.6.7",
+    "langchain-mcp-adapters>=0.3.1",
+    "langchain-openai>=1.6.7",
+    "mcp>=2.3.0",
+    "python-dotenv>=1.2.4",
+]
 
 [project.scripts]
 04-notification = "04_notification:main"
