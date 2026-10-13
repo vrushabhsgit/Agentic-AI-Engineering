@@ -1,0 +1,20 @@
+[project]
+name = "06-error-handling"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Vrushabh Damle", email = "dwrushabh@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastmcp>=4.1.0",
+    "pathlib>=1.0.1",
+]
+
+[project.scripts]
+06-error-handling = "06_error_handling:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
