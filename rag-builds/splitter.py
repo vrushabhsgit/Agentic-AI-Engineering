@@ -1,3 +1,4 @@
+#loaded the document
 from pathlib import Path
 from langchain_core.documents import Document
 
@@ -12,11 +13,20 @@ for path in sorted((HERE / "data").glob("*.md")):
         )
     )
 
-print(f"Loaded {len(documents)} documents\n")
-print(f"{'File':<20} {'Characters':>10}")
-print("-" * 31)
+print(f"Loaded {len(documents)} documents")
 
 for document in documents:
     filename = document.metadata["source"]
     character_count = len(document.page_content)
-    print(f"{filename:<20} {character_count:>10}")
+    print(f"{filename:<15} {character_count:>5} characters")
+
+#2. splitting work
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=50,
+)
+
+chunks = splitter.split_documents(documents)
+print(f"{len(documents)} documents became {len(chunks)} chunks")
