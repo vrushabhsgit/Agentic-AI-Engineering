@@ -32,6 +32,11 @@ splitter = RecursiveCharacterTextSplitter(
 )
 chunks = splitter.split_documents(documents)
 
+print(f"Loaded {len(documents)} documents; created {len(chunks)} chunks")
+for i, chunk in enumerate(chunks, start=1):
+    print(f"\nChunk {i} ({len(chunk.page_content)} characters) — {chunk.metadata['source']}")
+    print(chunk.page_content)
+
 # print(f"Loaded {len(documents)} documents; created {len(chunks)} chunks")
 
 store = Chroma.from_documents(
@@ -74,4 +79,7 @@ chain = (
     | model # send the completed prompt to the LLM
     | StrOutputParser() # convert the response into a normal string
 )
+
+question = "How long does a refund take after I return the item?"
+chain.invoke(question)
 
